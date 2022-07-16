@@ -1,0 +1,28 @@
+TF-serving:
+
+# Download the TensorFlow Serving Docker image and repo
+docker pull tensorflow/serving
+
+
+# Start TensorFlow Serving container and open the REST API port
+docker run -p 8501:8501 --name tfserving_classifier --mount type=bind,source=/Users/pachaar/Eigene/MLOps_workshop/models/,target=/models/img_classifier -e MODEL_NAME=img_classifier -t tensorflow/serving
+
+____________________________________________________________________________________________________________________________________
+
+Remove all Stopped container 
+sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+
+____________________________________________________________________________________________________________________________________
+# Login inside running container:
+docker exec -it container_id /bin/bash
+
+____________________________________________________________________________________________________________________________________
+
+# create docker image from docker file
+docker build -t mlops_espol .
+
+____________________________________________________________________________________________________________________________________
+
+# run container os mlops_espol
+docker build -p 8080:8080 mlops_espol
+
