@@ -1,7 +1,7 @@
 # Specifying the base image on top of which we add new layers
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
-MAINTAINER "akshay.pachaar@tomtom.com"
+MAINTAINER "arsingh1131@gmail.com"
 
 # RUN is a command used to add new layers on top of base layer
 RUN pip3 install --upgrade pip
